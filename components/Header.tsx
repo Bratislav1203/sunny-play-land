@@ -62,9 +62,24 @@ export default function Header() {
             <img
               src="/images/logo.png"
               alt="Sunny Playland"
-              style={{ height: 84, width: "auto", display: "block" }}
+              className="logo-tilt"
+              style={{ height: 84, width: "auto", display: "block", transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
             />
           </Link>
+
+          <style>{`
+            @keyframes logo-wiggle {
+              0%   { transform: rotate(0deg); }
+              15%  { transform: rotate(-8deg); }
+              35%  { transform: rotate(7deg); }
+              55%  { transform: rotate(-5deg); }
+              75%  { transform: rotate(4deg); }
+              90%  { transform: rotate(-2deg); }
+              100% { transform: rotate(0deg); }
+            }
+            .logo-tilt { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+            .logo-tilt:hover { animation: logo-wiggle 0.7s ease-in-out infinite; transition: none; }
+          `}</style>
 
           {/* Desktop nav */}
           <nav aria-label="Glavna navigacija" style={{ display: "flex", alignItems: "center", gap: 4 }}>
