@@ -104,10 +104,10 @@ export default function HeroSection() {
 
           {/* CTA dugmad */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 36 }}>
-            <a href="#aktivnosti" className="btn-primary" style={{ fontSize: "1rem", padding: "14px 28px" }}>
+            <a href="/aktivnosti" className="btn-primary" style={{ fontSize: "1rem", padding: "14px 28px" }}>
               🎪 Pogledajte aktivnosti
             </a>
-            <a href="#rodjendani" className="btn-blue" style={{ fontSize: "1rem", padding: "14px 28px" }}>
+            <a href="/rodjendani" className="btn-blue" style={{ fontSize: "1rem", padding: "14px 28px" }}>
               🎂 Rezervišite rođendan
             </a>
             <a
@@ -186,7 +186,7 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Fotografija placeholder */}
+            {/* Fotografija igraonice */}
             <div
               style={{
                 position: "relative",
@@ -195,44 +195,16 @@ export default function HeroSection() {
                 overflow: "hidden",
                 aspectRatio: "4/3",
                 boxShadow: "0 24px 60px rgba(0,0,0,0.15)",
-                background: "linear-gradient(135deg, #FFF0F5, #EAF8FF)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
               }}
             >
-              {/* Ovde ide prava fotografija igraonice */}
-              <div style={{ textAlign: "center", padding: 40 }}>
-                <div style={{ fontSize: "4rem", marginBottom: 12 }}>🛝</div>
-                <p style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, color: "#FF5F87", fontSize: "1.1rem" }}>
-                  Vaša fotografija ovde
-                </p>
-                <p style={{ color: "#8899AA", fontSize: "0.85rem", marginTop: 6 }}>
-                  Dodajte pravu sliku igraonice
-                </p>
-              </div>
+              <img
+                src="/images/igraonica.png"
+                alt="Sunny Playland igraonica"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
 
-            {/* Speech bubble */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                bottom: -10,
-                left: -30,
-                zIndex: 3,
-                background: "white",
-                borderRadius: "20px 20px 20px 6px",
-                padding: "14px 22px",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
-                maxWidth: 280,
-                border: "2px solid #FFE4ED",
-              }}
-            >
-              <p style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: "1.19rem", color: "#FF5F87", lineHeight: 1.4, margin: 0 }}>
-                😄 Smeh, igra i nove avanture svakog dana!
-              </p>
-            </div>
+
 
             {/* Dekorativna zvezda */}
             <div

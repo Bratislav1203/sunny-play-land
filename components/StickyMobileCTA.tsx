@@ -10,7 +10,7 @@ export default function StickyMobileCTA() {
         📞 Pozovite
       </a>
       <a
-        href="#rodjendani"
+        href="/rodjendani"
         className="btn-primary"
         style={{ flex: 1, justifyContent: "center", padding: "13px 10px", fontSize: "0.95rem" }}
         aria-label="Rezervišite termin"

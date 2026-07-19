@@ -147,7 +147,7 @@ export default function BirthdaySection() {
               </div>
 
               <a
-                href="#kontakt"
+                href="/kontakt"
                 className={p.featured ? "btn-primary" : "btn-outline"}
                 style={{ display: "flex", justifyContent: "center", width: "100%", fontSize: "0.95rem", ...(p.featured ? {} : { color: p.accent, borderColor: p.accent }) }}
               >
@@ -182,7 +182,7 @@ export default function BirthdaySection() {
             </p>
           </div>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <a href="#kontakt" className="btn-primary">🎂 Pošaljite upit</a>
+            <a href="/kontakt" className="btn-primary">🎂 Pošaljite upit</a>
             <a href="tel:+381692223390" className="btn-outline">📞 Pozovite nas</a>
           </div>
         </div>

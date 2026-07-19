@@ -73,10 +73,9 @@ export default function ActivitiesPreview() {
         {/* Naslov */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <div
-            className="section-tag"
+
             style={{ background: "#EAF8FF", color: "#338BFF" }}
           >
-            🎪 Sadržaji
           </div>
           <h2
             id="activities-heading"
@@ -174,7 +173,7 @@ export default function ActivitiesPreview() {
 
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: 48 }}>
-          <a href="#kontakt" className="btn-blue" style={{ fontSize: "1rem" }}>
+          <a href="/aktivnosti" className="btn-blue" style={{ fontSize: "1rem" }}>
             📋 Pogledajte sve aktivnosti
           </a>
         </div>

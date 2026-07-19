@@ -1,18 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "#aktivnosti", label: "Aktivnosti" },
-  { href: "#rodjendani", label: "Rođendani" },
-  { href: "#dnevna-igra", label: "Dnevna igra" },
-  { href: "#galerija", label: "Galerija" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "/aktivnosti", label: "Aktivnosti" },
+  { href: "/rodjendani", label: "Rođendani" },
+  { href: "/dnevna-igra", label: "Dnevna igra" },
+  { href: "/galerija", label: "Galerija" },
+  { href: "/kontakt", label: "Kontakt" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -46,31 +48,22 @@ export default function Header() {
           }}
         >
           {/* Logo */}
-          <Link href="/" aria-label="Sunny Playland – početna" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #FFC928, #FF5F87)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 22,
-                boxShadow: "0 3px 12px rgba(255,95,135,0.3)",
-                flexShrink: 0,
-              }}
-            >
-              ☀️
-            </div>
-            <div>
-              <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700, fontSize: "1.3rem", color: "#FF5F87", lineHeight: 1.1 }}>
-                Sunny
-              </div>
-              <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: "0.85rem", color: "#338BFF", lineHeight: 1 }}>
-                Playland
-              </div>
-            </div>
+          <Link
+            href="/"
+            aria-label="Sunny Playland – početna"
+            style={{ textDecoration: "none", display: "flex", alignItems: "center" }}
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            <img
+              src="/images/logo.png"
+              alt="Sunny Playland"
+              style={{ height: 84, width: "auto", display: "block" }}
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -103,7 +96,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#rodjendani"
+              href="/rodjendani"
               className="btn-primary"
               style={{ marginLeft: 16, padding: "10px 24px", fontSize: "0.95rem" }}
             >
@@ -176,7 +169,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#rodjendani"
+            href="/rodjendani"
             className="btn-primary"
             onClick={() => setOpen(false)}
             style={{ marginTop: 16, textAlign: "center", justifyContent: "center", fontSize: "1.1rem", padding: "16px 32px" }}

@@ -1,4 +1,4 @@
-import { CoffeeCupSvg, HeartSvg, CloudSvg } from "../svg/Decorations";
+import { HeartSvg, CloudSvg } from "../svg/Decorations";
 
 const perks = [
   { icon: "🛋️", label: "Udoban prostor" },
@@ -52,50 +52,27 @@ export default function CafeSection() {
               }}
             />
 
-            {/* Foto placeholder */}
+            {/* Foto */}
             <div
               style={{
                 width: "100%",
                 maxWidth: 420,
                 aspectRatio: "4/3",
                 borderRadius: "40% 60% 50% 50% / 50% 40% 60% 50%",
-                background: "linear-gradient(135deg, #FFF0E0, #FFF8E8)",
-                border: "3px solid rgba(255,200,40,0.3)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 12,
+                overflow: "hidden",
                 position: "relative",
                 zIndex: 1,
                 boxShadow: "0 20px 50px rgba(255,200,40,0.2)",
+                border: "3px solid rgba(255,200,40,0.3)",
               }}
             >
-              <CoffeeCupSvg style={{ width: 80, height: 92 }} />
-              <p style={{ color: "#C08040", fontFamily: "'Fredoka', sans-serif", fontSize: "0.95rem" }}>
-                Fotografija cafe dela ovde
-              </p>
+              <img
+                src="/images/kafe.png"
+                alt="Cafe deo Sunny Playland"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
 
-            {/* Dekorativna kafa-ikonika */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                bottom: 10,
-                right: 10,
-                zIndex: 3,
-                background: "white",
-                borderRadius: 20,
-                padding: "10px 16px",
-                boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-                border: "2px solid #FFE4B5",
-              }}
-            >
-              <span style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, color: "#E8A040", fontSize: "0.9rem" }}>
-                ☕ Topli i hladni napici
-              </span>
-            </div>
           </div>
 
           {/* Desna strana */}
@@ -148,7 +125,7 @@ export default function CafeSection() {
               ))}
             </div>
 
-            <a href="#kontakt" className="btn-primary" style={{ fontSize: "1rem" }}>
+            <a href="/kontakt" className="btn-primary" style={{ fontSize: "1rem" }}>
               📍 Posetite nas
             </a>
           </div>

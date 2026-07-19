@@ -102,7 +102,7 @@ export default function GamingSection() {
               ))}
             </div>
 
-            <a href="#aktivnosti" className="btn-primary" style={{ fontSize: "1rem" }}>
+            <a href="/aktivnosti" className="btn-primary" style={{ fontSize: "1rem" }}>
               🎪 Pogledajte sve aktivnosti
             </a>
           </div>

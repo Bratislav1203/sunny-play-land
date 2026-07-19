@@ -5,36 +5,86 @@ type SvgProps = { className?: string; style?: React.CSSProperties };
 export function SunSvg({ className = "", style }: SvgProps) {
   return (
     <svg
-      width="140"
-      height="140"
-      viewBox="0 0 140 140"
-      fill="none"
+      width="220"
+      height="220"
+      viewBox="0 0 220 220"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      role="img"
+      aria-label="Nasmejano sunce"
       className={className}
       style={{ pointerEvents: "none", ...style }}
     >
-      <g stroke="#FFB703" strokeWidth="7" strokeLinecap="round">
-        <path d="M70 7V22" />
-        <path d="M70 118V133" />
-        <path d="M7 70H22" />
-        <path d="M118 70H133" />
-        <path d="M25.5 25.5L36 36" />
-        <path d="M104 104L114.5 114.5" />
-        <path d="M114.5 25.5L104 36" />
-        <path d="M36 104L25.5 114.5" />
+      <defs>
+        <radialGradient id="sunFaceGradient" cx="35%" cy="28%" r="75%">
+          <stop offset="0%" stopColor="#FFF7A8" />
+          <stop offset="40%" stopColor="#FFD84A" />
+          <stop offset="100%" stopColor="#FFAA00" />
+        </radialGradient>
+        <linearGradient id="sunRayGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFD640" />
+          <stop offset="100%" stopColor="#FF9F00" />
+        </linearGradient>
+        <radialGradient id="sunCheekGradient">
+          <stop offset="0%" stopColor="#FF9AB0" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#FF718F" stopOpacity="0.15" />
+        </radialGradient>
+        <filter id="sunShadow" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="#E58A00" floodOpacity="0.28" />
+        </filter>
+        <filter id="sunInnerGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="blur" in2="SourceGraphic" operator="in" result="glow" />
+          <feMerge>
+            <feMergeNode in="glow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* Zraci */}
+      <g stroke="url(#sunRayGradient)" strokeWidth="11" strokeLinecap="round" opacity="0.98">
+        <path d="M110 12V35" />
+        <path d="M110 185V208" />
+        <path d="M12 110H35" />
+        <path d="M185 110H208" />
+        <path d="M41 41L58 58" />
+        <path d="M162 162L179 179" />
+        <path d="M179 41L162 58" />
+        <path d="M58 162L41 179" />
+        <path d="M72 20L80 42" />
+        <path d="M140 178L148 200" />
+        <path d="M20 72L42 80" />
+        <path d="M178 140L200 148" />
+        <path d="M148 20L140 42" />
+        <path d="M80 178L72 200" />
+        <path d="M20 148L42 140" />
+        <path d="M178 80L200 72" />
       </g>
-      <circle cx="70" cy="70" r="41" fill="#FFD84D" stroke="#FFB703" strokeWidth="5" />
-      <circle cx="55" cy="63" r="4.5" fill="#24304A" />
-      <circle cx="85" cy="63" r="4.5" fill="#24304A" />
-      <path
-        d="M51 79C56 89 65 94 70 94C75 94 84 89 89 79"
-        stroke="#24304A"
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
-      <circle cx="45" cy="76" r="7" fill="#FF8FA3" opacity="0.75" />
-      <circle cx="95" cy="76" r="7" fill="#FF8FA3" opacity="0.75" />
+
+      {/* Lice */}
+      <circle cx="110" cy="110" r="70" fill="url(#sunFaceGradient)" stroke="#F39B00" strokeWidth="6" filter="url(#sunShadow)" />
+
+      {/* Svetlosni odsjaj */}
+      <ellipse cx="83" cy="75" rx="29" ry="19" fill="#FFFFFF" opacity="0.38" transform="rotate(-25 83 75)" />
+      <ellipse cx="72" cy="62" rx="11" ry="6" fill="#FFFFFF" opacity="0.55" transform="rotate(-25 72 62)" />
+
+      {/* Obrve */}
+      <path d="M70 92C78 84 88 83 96 88" fill="none" stroke="#6A4300" strokeWidth="5" strokeLinecap="round" opacity="0.75" />
+      <path d="M124 88C133 83 143 84 151 92" fill="none" stroke="#6A4300" strokeWidth="5" strokeLinecap="round" opacity="0.75" />
+
+      {/* Oči */}
+      <ellipse cx="84" cy="107" rx="8" ry="11" fill="#252C46" />
+      <ellipse cx="136" cy="107" rx="8" ry="11" fill="#252C46" />
+      <circle cx="81" cy="103" r="2.8" fill="#FFFFFF" opacity="0.9" />
+      <circle cx="133" cy="103" r="2.8" fill="#FFFFFF" opacity="0.9" />
+
+      {/* Obrazi */}
+      <ellipse cx="65" cy="129" rx="17" ry="11" fill="url(#sunCheekGradient)" />
+      <ellipse cx="155" cy="129" rx="17" ry="11" fill="url(#sunCheekGradient)" />
+
+      {/* Osmeh */}
+      <path d="M77 127C85 145 99 153 110 153C121 153 135 145 143 127" fill="none" stroke="#343A54" strokeWidth="7" strokeLinecap="round" />
+      <path d="M92 145C103 151 117 151 128 145" fill="none" stroke="#FF788F" strokeWidth="5" strokeLinecap="round" opacity="0.75" />
     </svg>
   );
 }
@@ -42,28 +92,63 @@ export function SunSvg({ className = "", style }: SvgProps) {
 export function CloudSvg({ className = "", style }: SvgProps) {
   return (
     <svg
-      width="240"
-      height="130"
-      viewBox="0 0 240 130"
-      fill="none"
+      width="330"
+      height="190"
+      viewBox="0 0 330 190"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      role="img"
+      aria-label="Mekani oblak"
       className={className}
       style={{ pointerEvents: "none", ...style }}
     >
+      <defs>
+        <linearGradient id="cloudMainGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="52%" stopColor="#F1FAFF" />
+          <stop offset="100%" stopColor="#CFEFFF" />
+        </linearGradient>
+        <linearGradient id="cloudBottomGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#D9F3FF" />
+          <stop offset="100%" stopColor="#A7DDF7" />
+        </linearGradient>
+        <radialGradient id="cloudHighlight">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+        </radialGradient>
+        <filter id="cloudShadow" x="-30%" y="-30%" width="160%" height="180%">
+          <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#62B5D8" floodOpacity="0.24" />
+        </filter>
+      </defs>
+
+      {/* Glavni oblak */}
       <path
-        d="M52 112C28 112 10 95 10 74C10 54 26 38 47 36C55 16 74 5 96 5C123 5 145 23 150 48C157 43 166 40 176 40C199 40 218 57 218 79C218 98 202 112 181 112H52Z"
-        fill="#DDF3FF"
-        stroke="#A9DFFF"
+        d="M67 161 C34 161 12 141 12 112 C12 84 34 63 62 62 C72 32 99 13 132 13 C169 13 199 35 207 68 C219 56 237 49 256 49 C291 49 318 74 318 106 C318 138 292 161 257 161 Z"
+        fill="url(#cloudMainGradient)"
+        stroke="#A8DDF5"
         strokeWidth="5"
         strokeLinejoin="round"
+        filter="url(#cloudShadow)"
       />
+
+      {/* Donja dubina */}
       <path
-        d="M46 93C83 101 141 101 187 92"
-        stroke="#C4E9FF"
-        strokeWidth="6"
+        d="M42 136 C82 151 130 151 166 144 C206 136 248 140 286 126 C278 149 259 161 234 161 H68 C56 161 47 152 42 136 Z"
+        fill="url(#cloudBottomGradient)"
+        opacity="0.68"
+      />
+
+      {/* Odsjaji */}
+      <ellipse cx="124" cy="55" rx="54" ry="31" fill="url(#cloudHighlight)" />
+      <ellipse cx="224" cy="85" rx="42" ry="25" fill="url(#cloudHighlight)" opacity="0.65" />
+
+      {/* Blaga unutrašnja linija */}
+      <path
+        d="M55 131C104 146 158 146 208 135C238 128 265 129 288 119"
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="7"
         strokeLinecap="round"
-        opacity="0.8"
+        opacity="0.55"
       />
     </svg>
   );
@@ -105,41 +190,75 @@ export function StarSvg({ className = "", style }: SvgProps) {
 export function BalloonsSvg({ className = "", style }: SvgProps) {
   return (
     <svg
-      width="180"
-      height="220"
-      viewBox="0 0 180 220"
-      fill="none"
+      width="280"
+      height="350"
+      viewBox="0 0 280 350"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      role="img"
+      aria-label="Šareni baloni"
       className={className}
       style={{ pointerEvents: "none", ...style }}
     >
-      <path
-        d="M53 105C53 105 44 135 59 161C68 177 57 193 50 211"
-        stroke="#FF7091"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M112 100C112 100 125 132 108 157C98 172 112 191 120 211"
-        stroke="#3F9CFF"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <ellipse cx="53" cy="61" rx="35" ry="46" fill="#FF7091" stroke="#EF456E" strokeWidth="5" />
-      <ellipse cx="112" cy="55" rx="34" ry="45" fill="#67B7FF" stroke="#268DE0" strokeWidth="5" />
-      <path d="M47 105L53 115L59 105" fill="#EF456E" />
-      <path d="M106 99L112 109L118 99" fill="#268DE0" />
-      <path d="M39 35C45 27 51 25 57 25" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.65" />
-      <path d="M98 31C104 24 110 22 116 22" stroke="white" strokeWidth="6" strokeLinecap="round" opacity="0.65" />
-      <g strokeLinecap="round" strokeWidth="5">
-        <path d="M19 139L9 148" stroke="#FFD43B" />
-        <path d="M148 130L161 136" stroke="#8C6CFF" />
-        <path d="M151 164L163 154" stroke="#FF7091" />
-        <path d="M25 175L13 170" stroke="#54C887" />
+      <defs>
+        <radialGradient id="pinkBalloon" cx="32%" cy="24%" r="78%">
+          <stop offset="0%" stopColor="#FFB8CC" />
+          <stop offset="38%" stopColor="#FF719A" />
+          <stop offset="100%" stopColor="#DF376C" />
+        </radialGradient>
+        <radialGradient id="blueBalloon" cx="30%" cy="22%" r="80%">
+          <stop offset="0%" stopColor="#BDEAFF" />
+          <stop offset="42%" stopColor="#55B9FF" />
+          <stop offset="100%" stopColor="#1674D1" />
+        </radialGradient>
+        <radialGradient id="yellowBalloon" cx="30%" cy="22%" r="80%">
+          <stop offset="0%" stopColor="#FFF4A7" />
+          <stop offset="42%" stopColor="#FFD13D" />
+          <stop offset="100%" stopColor="#F5A500" />
+        </radialGradient>
+        <filter id="balloonShadow" x="-40%" y="-30%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="9" stdDeviation="8" floodColor="#304A6D" floodOpacity="0.2" />
+        </filter>
+        <linearGradient id="stringGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#B45A76" />
+          <stop offset="100%" stopColor="#6E7FA7" />
+        </linearGradient>
+      </defs>
+
+      {/* Kanapi */}
+      <path d="M80 172C90 220 57 248 94 337" fill="none" stroke="#CC5578" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M142 150C124 211 172 250 143 338" fill="none" stroke="#3488D8" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M201 174C181 221 220 261 190 337" fill="none" stroke="#E9A713" strokeWidth="3.5" strokeLinecap="round" />
+
+      {/* Roze balon */}
+      <ellipse cx="78" cy="95" rx="54" ry="72" fill="url(#pinkBalloon)" stroke="#CC3367" strokeWidth="5" filter="url(#balloonShadow)" />
+      <path d="M67 160L78 179L89 160Z" fill="#D8396D" stroke="#C22C5C" strokeWidth="2" />
+      <ellipse cx="61" cy="64" rx="16" ry="26" fill="#FFFFFF" opacity="0.5" transform="rotate(18 61 64)" />
+      <ellipse cx="55" cy="48" rx="6" ry="10" fill="#FFFFFF" opacity="0.72" transform="rotate(18 55 48)" />
+
+      {/* Plavi balon */}
+      <ellipse cx="147" cy="75" rx="52" ry="69" fill="url(#blueBalloon)" stroke="#156FBE" strokeWidth="5" filter="url(#balloonShadow)" />
+      <path d="M136 136L147 155L158 136Z" fill="#258AD9" stroke="#156FBE" strokeWidth="2" />
+      <ellipse cx="129" cy="47" rx="15" ry="25" fill="#FFFFFF" opacity="0.52" transform="rotate(17 129 47)" />
+      <ellipse cx="123" cy="32" rx="5.5" ry="9" fill="#FFFFFF" opacity="0.75" transform="rotate(17 123 32)" />
+
+      {/* Žuti balon */}
+      <ellipse cx="205" cy="105" rx="50" ry="67" fill="url(#yellowBalloon)" stroke="#E09A00" strokeWidth="5" filter="url(#balloonShadow)" />
+      <path d="M195 164L205 182L216 164Z" fill="#ECAA12" stroke="#D48D00" strokeWidth="2" />
+      <ellipse cx="189" cy="78" rx="14" ry="23" fill="#FFFFFF" opacity="0.52" transform="rotate(17 189 78)" />
+      <ellipse cx="184" cy="63" rx="5" ry="8" fill="#FFFFFF" opacity="0.75" transform="rotate(17 184 63)" />
+
+      {/* Konfete */}
+      <g strokeLinecap="round">
+        <path d="M20 211L7 223" stroke="#FFB700" strokeWidth="7" />
+        <path d="M238 225L255 234" stroke="#7E63F3" strokeWidth="7" />
+        <path d="M230 282L248 267" stroke="#FF5E88" strokeWidth="7" />
+        <path d="M32 286L15 279" stroke="#36C987" strokeWidth="7" />
+        <path d="M118 230L126 216" stroke="#FF8A41" strokeWidth="6" />
       </g>
-      <rect x="21" y="119" width="9" height="9" rx="2" transform="rotate(20 21 119)" fill="#8C6CFF" />
-      <rect x="149" y="112" width="9" height="9" rx="2" transform="rotate(-18 149 112)" fill="#FFD43B" />
+      <rect x="35" y="235" width="13" height="13" rx="3" fill="#8059E8" transform="rotate(24 35 235)" />
+      <rect x="220" y="196" width="13" height="13" rx="3" fill="#2EBBD0" transform="rotate(-20 220 196)" />
+      <circle cx="58" cy="323" r="7" fill="#FFD13D" />
+      <circle cx="231" cy="316" r="6" fill="#FF7095" />
     </svg>
   );
 }
@@ -154,12 +273,67 @@ export function HeartSvg({ className = "", style }: SvgProps) {
 
 export function RainbowSvg({ className = "", style }: SvgProps) {
   return (
-    <svg width="200" height="110" viewBox="0 0 200 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={className} style={{ pointerEvents: "none", ...style }}>
-      <path d="M10 100 Q100 10 190 100" stroke="#FF5F87" strokeWidth="12" fill="none" strokeLinecap="round"/>
-      <path d="M20 100 Q100 22 180 100" stroke="#FFC928" strokeWidth="10" fill="none" strokeLinecap="round"/>
-      <path d="M30 100 Q100 34 170 100" stroke="#45B95B" strokeWidth="10" fill="none" strokeLinecap="round"/>
-      <path d="M40 100 Q100 46 160 100" stroke="#338BFF" strokeWidth="10" fill="none" strokeLinecap="round"/>
-      <path d="M50 100 Q100 57 150 100" stroke="#8059E8" strokeWidth="8" fill="none" strokeLinecap="round"/>
+    <svg
+      width="390"
+      height="255"
+      viewBox="0 0 390 255"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Duga sa oblacima"
+      className={className}
+      style={{ pointerEvents: "none", ...style }}
+    >
+      <defs>
+        <filter id="rainbowShadow" x="-20%" y="-20%" width="140%" height="160%">
+          <feDropShadow dx="0" dy="9" stdDeviation="9" floodColor="#6982A1" floodOpacity="0.22" />
+        </filter>
+        <linearGradient id="rainbowCloudGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="100%" stopColor="#D6F1FF" />
+        </linearGradient>
+        <radialGradient id="rainbowCloudLight">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Duga */}
+      <g fill="none" strokeLinecap="round" filter="url(#rainbowShadow)">
+        <path d="M65 210C65 96 123 36 195 36C267 36 325 96 325 210" stroke="#FF668B" strokeWidth="38" />
+        <path d="M83 210C83 108 133 58 195 58C257 58 307 108 307 210" stroke="#FFB53C" strokeWidth="31" />
+        <path d="M100 210C100 121 143 80 195 80C247 80 290 121 290 210" stroke="#FFE55B" strokeWidth="27" />
+        <path d="M116 210C116 136 151 101 195 101C239 101 274 136 274 210" stroke="#58D18C" strokeWidth="24" />
+        <path d="M131 210C131 150 158 121 195 121C232 121 259 150 259 210" stroke="#55B9FF" strokeWidth="21" />
+        <path d="M145 210C145 163 166 140 195 140C224 140 245 163 245 210" stroke="#8A6CE8" strokeWidth="18" />
+      </g>
+
+      {/* Levi oblak */}
+      <g filter="url(#rainbowShadow)">
+        <path
+          d="M20 230 C7 230 0 220 0 208 C0 194 11 184 25 184 C30 168 45 158 62 158 C82 158 98 171 102 189 C108 183 117 180 126 180 C144 180 158 193 158 209 C158 222 147 230 132 230 Z"
+          fill="url(#rainbowCloudGradient)"
+          stroke="#ADDDF3"
+          strokeWidth="4"
+        />
+        <ellipse cx="59" cy="180" rx="31" ry="17" fill="url(#rainbowCloudLight)" />
+      </g>
+
+      {/* Desni oblak */}
+      <g filter="url(#rainbowShadow)">
+        <path
+          d="M255 230 C242 230 234 220 234 207 C234 193 246 183 260 183 C266 166 281 156 299 156 C320 156 336 170 340 189 C346 182 355 179 365 179 C383 179 390 194 390 209 C390 223 379 230 363 230 Z"
+          fill="url(#rainbowCloudGradient)"
+          stroke="#ADDDF3"
+          strokeWidth="4"
+        />
+        <ellipse cx="300" cy="178" rx="32" ry="18" fill="url(#rainbowCloudLight)" />
+      </g>
+
+      {/* Sjaj */}
+      <g fill="#FFFFFF">
+        <path d="M55 44L60 57L73 62L60 67L55 80L50 67L37 62L50 57Z" opacity="0.9" />
+        <path d="M330 58L334 68L344 72L334 76L330 86L326 76L316 72L326 68Z" opacity="0.8" />
+      </g>
     </svg>
   );
 }
