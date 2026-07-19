@@ -228,7 +228,7 @@ export default function HeroSection() {
       </div>
 
       {/* Talasasti razdelnik */}
-      <div style={{ lineHeight: 0, marginTop: 60, position: "relative", zIndex: 1 }}>
+      <div className="wave-divider" style={{ lineHeight: 0, marginTop: 60, marginBottom: -2, position: "relative", zIndex: 1, background: "linear-gradient(160deg, #EAF8FF 0%, #FFF0F5 60%, #FFF8E8 100%)" }}>
         <svg
           viewBox="0 0 1440 70"
           fill="none"

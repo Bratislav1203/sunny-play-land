@@ -179,12 +179,6 @@ export default function ActivitiesPreview() {
         </div>
       </div>
 
-      {/* Talasasti razdelnik */}
-      <div style={{ lineHeight: 0, marginTop: 60 }}>
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", width: "100%" }} aria-hidden="true" preserveAspectRatio="none">
-          <path d="M0 60C360 0 1080 0 1440 60V60H0V60Z" fill="#F5F0FF"/>
-        </svg>
-      </div>
 
       <style>{`
         @media (max-width: 600px) {

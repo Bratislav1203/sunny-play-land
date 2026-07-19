@@ -133,7 +133,7 @@ export default function CafeSection() {
       </div>
 
       {/* Talasasti razdelnik */}
-      <div style={{ lineHeight: 0 }}>
+      <div className="wave-divider" style={{ lineHeight: 0 }}>
         <svg viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", width: "100%" }} aria-hidden="true" preserveAspectRatio="none">
           <path d="M0 35C360 70 1080 0 1440 35V70H0Z" fill="#FFF0F5"/>
         </svg>

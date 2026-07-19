@@ -75,7 +75,7 @@ export default function DnevnaIgraPage() {
             </div>
           </div>
 
-          <div style={{ lineHeight: 0, marginTop: 60 }}>
+          <div className="wave-divider" style={{ lineHeight: 0, marginTop: 60 }}>
             <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", width: "100%" }} aria-hidden="true" preserveAspectRatio="none">
               <path d="M0 0C360 60 1080 60 1440 0V60H0Z" fill="white" />
             </svg>

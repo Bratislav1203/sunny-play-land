@@ -25,12 +25,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-              <div style={{ width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg, #FFC928, #FF5F87)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>☀️</div>
-              <div>
-                <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700, fontSize: "1.4rem", color: "#FF91B2" }}>Sunny</div>
-                <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 600, fontSize: "0.9rem", color: "#67B7FF" }}>Playland</div>
-              </div>
+            <div style={{ marginBottom: 16 }}>
+              <img src="/images/logo.png" alt="Sunny Playland" style={{ height: 64, width: "auto", display: "block" }} />
             </div>
             <p style={{ color: "#A8B4D0", fontSize: "0.9rem", lineHeight: 1.7, maxWidth: 260 }}>
               Dečija igraonica i cafe u srcu Višnjičke banje — mesto gde igra postaje avantura.

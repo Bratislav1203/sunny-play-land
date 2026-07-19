@@ -146,7 +146,7 @@ export default function BenefitsSection() {
       </div>
 
       {/* Talasasti razdelnik */}
-      <div style={{ lineHeight: 0 }}>
+      <div className="wave-divider" style={{ lineHeight: 0 }}>
         <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", width: "100%" }} aria-hidden="true" preserveAspectRatio="none">
           <path d="M0 30C360 60 1080 0 1440 30V60H0Z" fill="#EAF8FF"/>
         </svg>
