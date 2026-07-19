@@ -19,28 +19,28 @@ export default function HeroSection() {
       }}
     >
       {/* Dekoracije */}
-      <div aria-hidden="true" style={{ position: "absolute", top: 20, left: -30, opacity: 0.55, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-cloud-l" style={{ position: "absolute", top: 20, left: -30, opacity: 0.55, pointerEvents: "none" }}>
         <CloudSvg className="animate-float-slow" />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 10, right: 60, opacity: 0.45, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-cloud-r" style={{ position: "absolute", top: 10, right: 60, opacity: 0.45, pointerEvents: "none" }}>
         <CloudSvg className="animate-float" style={{ transform: "scaleX(-1)" }} />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 30, right: "38%", opacity: 0.7, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-sun" style={{ position: "absolute", top: 30, right: "38%", opacity: 0.7, pointerEvents: "none" }}>
         <SunSvg className="animate-rotate-slow" style={{ width: 80, height: 80 }} />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 80, left: "8%", opacity: 0.55, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-star1" style={{ position: "absolute", top: 80, left: "8%", opacity: 0.55, pointerEvents: "none" }}>
         <StarSvg className="animate-float" style={{ width: 60, height: 60 }} />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 140, left: "2%", opacity: 0.4, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-confetti" style={{ position: "absolute", top: 140, left: "2%", opacity: 0.4, pointerEvents: "none" }}>
         <ConfettiSvg className="animate-confetti" />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 60, right: "5%", opacity: 0.6, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-balloons" style={{ position: "absolute", top: 60, right: "5%", opacity: 0.6, pointerEvents: "none" }}>
         <BalloonsSvg className="animate-float-slow" style={{ width: 100, height: 120 }} />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", bottom: 80, left: "30%", opacity: 0.35, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-rainbow" style={{ position: "absolute", bottom: 80, left: "calc(30% + 100px)", opacity: 0.35, pointerEvents: "none" }}>
         <RainbowSvg style={{ width: 160 }} />
       </div>
-      <div aria-hidden="true" style={{ position: "absolute", top: 200, right: "25%", opacity: 0.45, pointerEvents: "none" }}>
+      <div aria-hidden="true" className="hero-deco hero-deco-star2" style={{ position: "absolute", top: 200, right: "25%", opacity: 0.45, pointerEvents: "none" }}>
         <StarSvg className="animate-float-slow" style={{ width: 44, height: 44 }} />
       </div>
 
@@ -254,11 +254,25 @@ export default function HeroSection() {
           .hero-photo-col {
             order: -1;
           }
+          /* Oblaci smanjeni, neke dekoracije sakrivene */
+          .hero-deco-cloud-l svg { width: 200px !important; }
+          .hero-deco-cloud-r svg { width: 180px !important; }
+          .hero-deco-sun svg { width: 56px !important; height: 56px !important; }
+          .hero-deco-star1 svg { width: 40px !important; height: 40px !important; }
+          .hero-deco-confetti { display: none !important; }
+          .hero-deco-balloons svg { width: 64px !important; height: 80px !important; }
+          .hero-deco-rainbow { display: none !important; }
+          .hero-deco-star2 { display: none !important; }
         }
         @media (max-width: 600px) {
           .hero-grid {
             padding-top: 32px !important;
           }
+          .hero-deco-cloud-l svg { width: 140px !important; }
+          .hero-deco-cloud-r { display: none !important; }
+          .hero-deco-sun svg { width: 40px !important; height: 40px !important; }
+          .hero-deco-star1 { display: none !important; }
+          .hero-deco-balloons { display: none !important; }
         }
       `}</style>
     </section>
